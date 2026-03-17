@@ -1,0 +1,46 @@
+---
+title: "How Launches Work"
+description: "A launch has three main parts: setup, ticket sale, and settlement. Each part is on-chain, driven by a few parameters instead of ad-hoc decisions."
+---
+
+A launch has three main parts: setup, ticket sale, and settlement. Each part is on-chain, driven by a few parameters instead of ad-hoc decisions.
+
+## 1. Setup: Rules, Not Hype
+
+The founder configures:
+
+- Total token sale supply and ticker.
+- Team allocation and its vesting schedule via Streamflow (standard band tiers system).
+- Ticket price, maximum tickets per wallet, and min/max caps in SOL.
+- External identity proofs so users see who owns the launch, not just the wallet.
+
+<Warning>
+  Once deployed, these rules cannot be silently changed; the smart contract enforces them for the whole launch.
+</Warning>
+
+## 2. Ticket Sale: One Simple Action
+
+Participants buy tickets from the launch contract using SOL.
+
+- Each ticket represents a claim on tokens if the sale succeeds.
+- Per-wallet limits keep a single whale from taking everything in one shot.
+
+The sale runs until a defined end time.
+
+## 3. Settlement: Three Clear Outcomes
+
+At the end, the contract checks how much SOL was raised and applies a simple decision tree:
+
+<Steps>
+  <Step title="Below min cap">
+    Everyone gets a **refund** in SOL, no tokens are distributed.
+  </Step>
+  <Step title="Between min and max cap">
+    All valid tickets share the tokens **pro-rata**.
+  </Step>
+  <Step title="Above max cap">
+    The extra demand triggers a **raffle and anti-whale logic**, so oversized entries are trimmed first.
+  </Step>
+</Steps>
+
+Nobody needs to trust a manual drawing; the contract resolves it deterministically from on-chain data.

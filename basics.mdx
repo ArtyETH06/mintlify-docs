@@ -1,0 +1,48 @@
+---
+title: "Basics: Wallets, Tokens, Safety"
+description: "The core concepts you need to use RevolutionPad safely."
+---
+
+You need only a few concepts to use RevolutionPad safely.
+
+## Wallets and Keys
+
+A Solana wallet is software that controls a public address using a secret key.
+
+- The **public wallet address** is what you can share safely to receive funds.
+- The **seed phrase / private key** must **never be shared**. Anyone who has it controls your funds. Keep it on paper, nothing connected to a cloud.
+
+RevolutionPad never sees or stores your seed phrase. You sign every action (tickets, claims, fee harvests) from your own wallet.
+
+For larger amounts, use:
+
+- A **hardware wallet**, or
+- A **multisig** (for teams) so no single key can move everything.
+
+<Info>
+  Self-custody multisig for Solana: [Squads](https://docs.squads.so/main)
+</Info>
+
+## Tokens, Liquidity, Vesting
+
+- A **token** is your project's unit of value on Solana.
+- A **liquidity pool** holds your token and SOL/USDC so people can trade.
+- On Meteora, these pools can be **locked**, so you cannot pull the base liquidity later — only claim trading fees in SOL/USDC.
+- **Vesting** means the team's tokens unlock slowly over time instead of all at once.
+
+## The RevolutionPad Standard
+
+<CardGroup cols={2}>
+  <Card title="1 Billion" icon="coins">
+    Total supply is fixed at 1 billion units.
+  </Card>
+  <Card title="30% for LP" icon="droplet">
+    30% of supply is reserved for liquidity.
+  </Card>
+  <Card title="Team Vesting" icon="clock">
+    The team share vests over multiple years via Streamflow.
+  </Card>
+  <Card title="Community First" icon="users">
+    The rest goes to the community through the raffle and launch.
+  </Card>
+</CardGroup>
