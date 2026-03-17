@@ -6,7 +6,8 @@
 [class*="logo" i] svg,
 [class*="Logo"] img,
 [class*="Logo"] svg {
-  height: 41px !important;
+  height: 37px !important;
   width: auto !important;
   max-height: none !important;
+  margin-left: -10px !important;
 }
