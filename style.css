@@ -1,0 +1,6 @@
+.nav-logo img,
+.nav-logo svg {
+  height: 41px;
+  width: auto;
+  max-height: none;
+}

@@ -9,6 +9,13 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        { "anchor": "Website", "icon": "globe", "href": "https://revolutionpad.io" },
+        { "anchor": "Discord", "icon": "discord", "href": "https://discord.gg/Vy9dHNrhGx" },
+        { "anchor": "Twitter / X", "icon": "x-twitter", "href": "https://x.com/RevolutionPad" }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
@@ -53,21 +60,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    "light": "/images/logo-wordmark.svg",
+    "dark": "/images/logo-wordmark.svg"
   },
   "contextual": {
     "options": [
@@ -83,9 +77,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/RevolutionPad",
+      "discord": "https://discord.gg/Vy9dHNrhGx",
+      "website": "https://revolutionpad.io"
     }
   }
 }
