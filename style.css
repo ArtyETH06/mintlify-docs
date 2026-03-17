@@ -1,6 +1,12 @@
-.nav-logo img,
-.nav-logo svg {
-  height: 41px;
-  width: auto;
-  max-height: none;
+#navbar img,
+#navbar svg,
+.Logo img,
+.Logo svg,
+[class*="logo" i] img,
+[class*="logo" i] svg,
+[class*="Logo"] img,
+[class*="Logo"] svg {
+  height: 41px !important;
+  width: auto !important;
+  max-height: none !important;
 }
