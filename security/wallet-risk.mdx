@@ -1,0 +1,86 @@
+---
+title: "Wallet Risk Score"
+description: "How RevolutionPad evaluates wallet risk using on-chain data to detect bots, sybil farms, and bad actors."
+---
+
+Every wallet that interacts with RevolutionPad receives a **Wallet Risk Score** from 0 to 100. This score is separate from the internal Investor Rank — it measures external risk signals using on-chain data.
+
+## Purpose
+
+- Detect bots and sybil farms
+- Identify wallets linked to rug pulls
+- Reduce aggressive farming
+- Provide a public trust signal
+
+## Score Categories
+
+The score is computed from five equally weighted categories (20% each).
+
+### A. Account Age & Origin
+
+| Signal | Risk Points |
+|---|---|
+| Wallet < 7 days old | +25 |
+| 7–30 days old | +15 |
+| 1–3 months old | +5 |
+| 3+ months old | 0 |
+
+<Warning>
+  10+ wallets created on the same day from the same funding source is a major red flag.
+</Warning>
+
+### B. Transaction Depth & Diversity
+
+| Signal | Risk Points |
+|---|---|
+| < 10 transactions | +20 |
+| < 3 programs used | +10 |
+| Only interacts with presales | +15 |
+| 50+ programs used | -5 (organic signal) |
+
+### C. Presale Farming Pattern
+
+| Signal | Risk Points |
+|---|---|
+| 20+ presales in 30 days | +20 |
+| Repeated claim + sell < 10 min | +25 |
+| Never holds > 24h | +15 |
+
+### D. Rug / Scam Interaction
+
+| Signal | Risk Points |
+|---|---|
+| Bought a token flagged as scam | +10 |
+| Interacted with 3+ rug contracts | +20 |
+| Received funds from a blacklisted wallet | +25 |
+
+### E. Bot & Cluster Detection
+
+| Signal | Risk Points |
+|---|---|
+| 10+ wallets with circular funding | +30 |
+| Transactions in the same slot | +30 |
+| Identical buy sizes repeated | +30 |
+| 20 wallets registered within 30 seconds | +30 |
+
+## Risk Classification
+
+| Score | Level | Label |
+|---|---|---|
+| 0–20 | 🟢 | Low Risk |
+| 21–50 | 🟡 | Monitor |
+| 51–75 | 🔴 | High Risk |
+| 76–100 | ⛔ | Severe Risk |
+
+## Public Display
+
+On a wallet's profile page:
+
+```
+Wallet Risk: 72/100 (HIGH)
+
+Flags:
+  3 rug interactions
+  Farming pattern detected
+  Cluster detected (12 wallets)
+```

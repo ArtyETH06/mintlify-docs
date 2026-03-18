@@ -1,0 +1,33 @@
+---
+title: "Security & Risk Scoring"
+description: "How RevolutionPad evaluates wallet risk and launch health to protect participants."
+---
+
+RevolutionPad uses two complementary scoring systems to keep launches fair and transparent.
+
+## Wallet Risk Score (0–100)
+
+Every wallet receives a risk score based on on-chain signals. The score is computed from five categories:
+
+- **Account Age & Origin** — how old the wallet is and where it was funded from
+- **Transaction Depth & Diversity** — how many programs the wallet has interacted with
+- **Presale Farming Pattern** — repeated claim-and-dump behavior across launches
+- **Rug / Scam Interaction** — links to known scam contracts or blacklisted wallets
+- **Bot & Cluster Detection** — circular funding, identical buy sizes, coordinated registrations
+
+| Score | Level |
+|---|---|
+| 0–20 | 🟢 Low Risk |
+| 21–50 | 🟡 Monitor |
+| 51–75 | 🔴 High Risk |
+| 76–100 | ⛔ Severe Risk |
+
+## Launch Health Score
+
+Each launch is also scored based on the wallets participating in it:
+
+- **Concentration risk** — are a few wallets holding most of the tickets?
+- **Temporal patterns** — are there signs of bot-driven mass participation?
+- **Cluster overlay** — what percentage of tickets come from high-risk wallets?
+
+Both scores are displayed publicly to help investors make informed decisions and to naturally discourage manipulation.

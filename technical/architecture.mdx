@@ -1,0 +1,61 @@
+---
+title: "Architecture"
+description: "High-level technical architecture of the RevolutionPad platform."
+---
+
+## Overview
+
+RevolutionPad is built on three layers:
+
+1. **On-chain program** — Solana smart contract handling all launch logic, ticket sales, settlements, and refunds.
+2. **Backend services** — Off-chain microservices for risk scoring, indexing, and API serving.
+3. **Frontend** — Web application for participants and founders to interact with the protocol.
+
+## On-Chain Program
+
+The core program is written in Rust using the Anchor framework. It manages:
+
+- Launch creation and configuration
+- Ticket purchases and per-wallet limits
+- Settlement logic (success, refund, raffle)
+- Liquidity pool creation on Meteora
+- Vesting schedule setup on Streamflow
+
+## Risk Engine
+
+A dedicated microservice evaluates wallet and launch risk:
+
+```
+risk-engine/
+  ├── wallet-risk-analyzer.ts
+  ├── cluster-detector.ts
+  ├── launch-distribution.ts
+  ├── api-integrations.ts
+  └── postgres cache
+```
+
+**Design principles:**
+
+- Each wallet is indexed once, then cached
+- Scores are stored in PostgreSQL
+- Periodic refresh every 7 days
+- Recalculation only triggered by new on-chain activity
+
+## Data Sources
+
+| Source | Usage |
+|---|---|
+| Helius Enhanced API | Account creation, TX parsing, program interactions |
+| Bitquery | DEX trades, holder concentration, rug detection |
+| Solscan labels | Wallet tagging, known entities |
+| Meteora contracts | LP depth, lock status, ownership verification |
+
+## Infrastructure
+
+| Component | Stack |
+|---|---|
+| Smart Contract | Rust / Anchor |
+| Backend | TypeScript / Node.js |
+| Database | PostgreSQL |
+| Frontend | React / Next.js |
+| RPC | Helius |

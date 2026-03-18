@@ -1,0 +1,42 @@
+---
+title: "Security Audit"
+description: "Audit reports and security practices for the RevolutionPad protocol."
+---
+
+## Audit Status
+
+RevolutionPad has undergone a comprehensive security audit of its on-chain program.
+
+<Card title="Download Audit Report" icon="file-pdf" href="/files/revolutionpad-audit-report.pdf">
+  Full audit report (PDF) — covers all on-chain program logic, access controls, and token handling.
+</Card>
+
+## Scope
+
+The audit covered:
+
+- **Token launch lifecycle** — creation, ticket sale, settlement, and refund flows
+- **Liquidity management** — pool creation, locking mechanisms, and Meteora integration
+- **Access controls** — admin functions, founder permissions, and program authority
+- **Token handling** — minting, transfers, vesting schedule setup via Streamflow
+- **Edge cases** — minimum raise not met, raffle logic, anti-whale tax calculations
+
+## Findings Summary
+
+| Severity | Count | Status |
+|---|---|---|
+| Critical | 0 | — |
+| High | 0 | — |
+| Medium | 1 | Resolved |
+| Low | 3 | Resolved |
+| Informational | 5 | Acknowledged |
+
+<Note>
+  All medium and low severity findings were addressed before mainnet deployment.
+</Note>
+
+## Ongoing Security
+
+- **Bug bounty program** — responsible disclosure is encouraged. Contact the team via Discord for details.
+- **Verified builds** — the on-chain program can be verified against the published source code.
+- **Upgrade authority** — details on multisig and program upgrade governance are available on request.

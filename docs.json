@@ -49,6 +49,14 @@
             ]
           },
           {
+            "group": "Platform Deep Dive",
+            "pages": [
+              "reputation/overview",
+              "security/overview",
+              "technical/overview"
+            ]
+          },
+          {
             "group": "FAQ & Risks",
             "pages": [
               "faq",

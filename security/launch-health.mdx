@@ -1,0 +1,37 @@
+---
+title: "Launch Health Score"
+description: "How RevolutionPad assesses the distribution risk and overall health of each launch."
+---
+
+Every launch on RevolutionPad receives a **Launch Health Score** based on the wallets participating in it. This helps investors gauge the quality and fairness of a launch before committing.
+
+## Concentration Metrics
+
+| Signal | Severity |
+|---|---|
+| Gini coefficient > 0.85 | 🔴 RED |
+| Top 1 wallet > 50% of tickets | ⛔ CRITICAL |
+| Top 5 wallets > 80% of tickets | 🔴 HIGH |
+| Top 20 wallets > 90% of tickets | 🟡 Monitor |
+
+## Temporal Patterns
+
+- **30+ participations in < 2 minutes** — Bot suspicion flag
+- **Abnormal variance in participation timing** — Spike score applied
+
+## Cluster Overlay
+
+If **30%+ of tickets** come from wallets classified as High Risk, the launch is flagged:
+
+```
+Launch Health: 68/100
+Concentration risk: HIGH
+Wallet risk average: Elevated
+Cluster detected
+```
+
+## How It Helps
+
+- **Investors** can see at a glance whether a launch is dominated by bots or clusters
+- **Founders** benefit from higher-quality participant pools
+- **The platform** naturally discourages manipulation without requiring manual intervention
