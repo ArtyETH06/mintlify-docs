@@ -3,27 +3,29 @@ title: "How Launches Work"
 description: "A launch has three main parts: setup, ticket sale, and settlement. Each part is on-chain, driven by a few parameters instead of ad-hoc decisions."
 ---
 
-A launch has three main parts: setup, ticket sale, and settlement. Each part is on-chain, driven by a few parameters instead of ad-hoc decisions.
+A launch has three parts: setup, ticket sale, and settlement. Each part is on‑chain and controlled by a small set of parameters, not by ad‑hoc decisions.
 
 ## 1. Setup: Rules, Not Hype
 
-The founder configures:
+The founder sets:
 
-- Total token sale supply and ticker.
-- Team allocation and its vesting schedule via Streamflow (standard band tiers system).
-- Ticket price, maximum tickets per wallet, and min/max caps in SOL.
+- Team allocation (you set this; the system derives the rest).
+- Sale supply and vesting bands are auto-calculated from the team share and applied via Streamflow.
+- Ticket price, max tickets per wallet, and min/max caps in SOL.
+- Optional early phase buyback (taking a portion of the LP fees to buyback some token and add it into the LP position, locked).
+- Optional compounding (taking a portion of the LP fees to add more liquidity reserve).
 - External identity proofs so users see who owns the launch, not just the wallet.
 
 <Warning>
-  Once deployed, these rules cannot be silently changed; the smart contract enforces them for the whole launch.
+  Once deployed, these rules cannot be changed quietly; the smart contract enforces them for the whole launch.
 </Warning>
 
 ## 2. Ticket Sale: One Simple Action
 
 Participants buy tickets from the launch contract using SOL.
 
-- Each ticket represents a claim on tokens if the sale succeeds.
-- Per-wallet limits keep a single whale from taking everything in one shot.
+- Each ticket is a claim on tokens if the sale succeeds.
+- Per-wallet limits are not a silver bullet; they help cap low‑effort bundling, and, combined with our wallet scoring and profiling, let us flag risky, wallet‑concentrated launches as tickets come in.
 
 The sale runs until a defined end time.
 
@@ -33,14 +35,14 @@ At the end, the contract checks how much SOL was raised and applies a simple dec
 
 <Steps>
   <Step title="Below min cap">
-    Everyone gets a **refund** in SOL, no tokens are distributed.
+    Everyone can claim a **refund** in SOL; no tokens are distributed.
   </Step>
   <Step title="Between min and max cap">
-    All valid tickets share the tokens **pro-rata**.
+    All valid tickets receive tokens **pro-rata**.
   </Step>
-  <Step title="Above max cap">
+  <Step title="Above max cap (oversubscribed)">
     The extra demand triggers a **raffle and anti-whale logic**, so oversized entries are trimmed first.
   </Step>
 </Steps>
 
-Nobody needs to trust a manual drawing; the contract resolves it deterministically from on-chain data.
+No one runs a manual draw; the contract resolves everything deterministically from on-chain data.
