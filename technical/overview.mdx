@@ -21,3 +21,47 @@ RVPDx7jMSWsKfqFnNpTQ4MgWXsHCHd5rFaoEuWosGcR
 <Card title="Download Audit Report" icon="file-pdf" href="/files/revolutionpad-audit-report.pdf">
   Full audit report (PDF)
 </Card>
+
+## Quick Reference Table
+
+| Aspect | Value / Range | Notes |
+|---|---|---|
+| Chain | Solana | Single-chain deployment |
+| Base Asset | SOL only | No stables, no other base |
+| Max Token Supply | 1B tokens | Fixed, can't change |
+| Decimals | 9 | Fixed at mint |
+| Initial LP Supply | 30% of max supply | Fixed, can't change |
+| Team Supply | 0–25% of max supply | Founder configures |
+| Public / Raffle Supply | 45–70% of max supply | Auto-calculated from others |
+| Reserve / Future Supply | Remainder | Optional, held off-pool |
+| Ticket Price | 0.05–10 SOL | Founder configures |
+| Min Cap (raise) | ≥ 50 SOL | Founder configures, protocol lower bound |
+| Max Cap (raise) | ≥ Min Cap or null | Optional hard cap |
+| Funding Currency | SOL | All tickets paid in SOL |
+| Max Tickets / Wallet | 1–N | Founder configures, anti-whale |
+| Min Tickets / Wallet | 1 | Fixed |
+| Max Winners | Number ≥ 1 | Used if participation > Max Cap |
+| Raffle Start Time | Block / timestamp | When founder sign the launch Tx |
+| Raffle End Time | Block / timestamp | Founder configures |
+| Trading Start Delay | 0–10 min after pool creation | Optional anti-sniping buffer |
+| AMM Curve | Constant-product x·y = k | SOL/token pool |
+| Swap Direction | SOL ↔ token | Single pair per project |
+| LP Fee (swap fee) | 2% on notional | Fixed, taken in SOL only |
+| LP Fee Token Side | SOL only | Never charges in project token |
+| Project Fee Share | 80% of LP fee | Split between project and protocol treasuries |
+| Protocol Fee Share | 20% of LP fee | Split between project and protocol treasuries |
+| LP Lock | Permanent | No principal withdrawal, fees claim only |
+| Team Vesting | Mandatory | Via Streamflow protocol |
+| Min Initial Liquidity | ≥ 50 SOL | Enforced by factory |
+| Max Slippage (UI) | 0.1–2% | Suggested user-side setting |
+| Buyback Enabled | On / Off | At project level |
+| Buyback Budget | 0–X% of SOL fees | Policy set by founder |
+| Buyback Mode | Market buy + Add locked LP | Only during the first 2 hours post-launch |
+| Buyback Trigger | Automated | Enforced by factory |
+| Project Treasury Address | SOL address | Set at launch, immutable |
+| Protocol Treasury Address | SOL address | RevolutionPad wallet |
+| Pool Upgradeability | Immutable | Per-pool logic fixed at creation |
+| Parameter Guards | Hard-coded ranges | Ticket price, caps, fees, etc. |
+| Events Emitted | Create / Configure / Ticket / Draw / Claim / Swap / Fees / Buyback | Full indexability |
+| Analytics Endpoints | Volume / TVL / fees / winners | For dashboards and explorers |
+| Frontend Guardrails | Preset sliders and presets | Only exposes safe ranges from this table |
